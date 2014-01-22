@@ -1,0 +1,27 @@
+=render :partial => "show/show_activity"
+%input(value=@uname id="uname" style="display:none")
+= stylesheet_link_tag    "android", media: "all", "data-turbolinks-track" => true
+:javascript
+  $(document).ready(function(){
+  user_demensional_logout();
+  })
+  function user_demensional_logout(){
+    var name=document.getElementById("uname").value;
+    $.ajax({
+        url:'/is_demensional_logout/'+name,
+        method:'get',
+        success:success_result,
+        error:error_result
+        })
+  }
+  function success_result(result){
+      if(result=='logout'){
+         window.location.href='http://192.168.1.159:3000/'
+         }
+      else{
+         setTimeout('user_demensional_logout()',1000)
+      }
+   }
+  function error_result(result){
+        alert("error")
+  }

@@ -1,0 +1,11 @@
+
+
+.no-footer
+  %header
+    活动列表
+  .wrapper
+    %ul.list-style-2
+      %center
+        -@activities.each do |activity|
+          %li
+            =activity["name"]

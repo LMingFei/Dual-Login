@@ -1,0 +1,10 @@
+-if field
+  %ul(class="breadcrumb")
+    %li
+      =link_to "首页",manager_logined_path(:page=>params[:page])
+    %li(class="active")
+    =field
+-else
+  %ul(class="breadcrumb")
+    %li(class="active" )
+      首页

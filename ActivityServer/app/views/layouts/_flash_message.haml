@@ -1,0 +1,9 @@
+%center
+  -if flash[:notice]
+    %div
+      %h4
+        =flash[:notice]
+  -if flash[:alert]
+    %div
+      %h4
+        =flash[:alert]

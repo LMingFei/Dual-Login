@@ -1,0 +1,16 @@
+%fieldset(style="width:600px;width:50% ;margin:auto auto")
+  %legend
+    密码找回
+  =form_for(:user,:url=>'forgot1') do |form|
+    =render :partial => "layouts/login_link_row"
+    -#.input-group(style="margin:auto" )
+    -#  =u.label :'帐号',:class =>'input-group-addon text-center',:style =>'width:120px'
+    -#  =u.text_field :name,:class =>'form-control',:style =>'width:450px',:placeholder=>'请输入帐号'
+
+    =render :partial => "layouts/text_field_row",:locals => {:form=>form,
+                                                                 :field=>"name",
+                                                                 :field_title=>'帐号',
+                                                                 :placeholder_text=>'请输入帐号'}
+    =render :partial =>"layouts/error_row"
+    =render :partial => "layouts/submit_field_row",:locals => {:form=>form,
+                                                             :field_title=>'下一步'}

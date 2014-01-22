@@ -1,0 +1,16 @@
+%fieldset(style="width:600px;width:50% ;margin:auto auto")
+  %legend
+    密码找回
+  =form_for(:user,:url => 'forgot3') do |form|
+    =render :partial => "layouts/login_link_row"
+    =render :partial => "layouts/password_field_row",:locals => {:form=>form,
+                                                                 :field=>"password",
+                                                                 :field_title=>"请设置新密码",
+                                                                 :placeholder_text=>'请输入新密码'}
+    =render :partial => "layouts/password_field_row",:locals => {:form=>form,
+                                                                 :field=>"password_confirmation",
+                                                                 :field_title=>"确认密码" ,
+                                                                 :placeholder_text=>'请输入确认密码'}
+    =render :partial => "layouts/error_user_field_row",:locals => {:user=>@user}
+    =render :partial => "layouts/submit_field_row",:locals => {:form=>form,
+                                                             :field_title=>'确认修改'}

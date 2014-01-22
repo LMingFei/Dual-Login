@@ -1,0 +1,43 @@
+%center
+  %ul(class="nav nav-tabs" id="myTab" style="font-size:16px;background:#ddd" )
+    %li(class="active" style="width:50%;font-size:16px;background:#ddd")
+      %a(href="#home" data-toggle="tab" )
+        出价列表
+    %li(style="width:50%" style="width:50%;font-size:16px;background:#ddd")
+      %a(href="#profile" data-toggle="tab" )
+        竞价统计
+  %div(class="tab-content")
+    %div(class="tab-pane fade in active" id="home")
+      %table(class="table table-hover" style="margin-top:0px" )
+        %tr
+          %td
+            编号
+          %td
+            姓名
+          %td
+            出价
+          %td
+            手机号
+        -@biddings.each do |bidding|
+          %tr
+            %td
+              =@count+=1
+            %td
+              =bidding.name
+            %td
+              =bidding.price
+            %td
+              =bidding.phone
+    %div(class="tab-pane fade" id="profile")
+      %table(class="table table-hover" style="margin-top:0px" )
+        %tr
+          %td
+            价格/元
+          %td
+            人数
+        -@biddings_classified.each do|bidding|
+          %tr
+            %td
+              =bidding.price
+            %td
+              =bidding.name

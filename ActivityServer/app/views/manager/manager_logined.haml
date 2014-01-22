@@ -1,0 +1,9 @@
+=render :partial => "layouts/crubs_nav",:locals => {:field=>nil}
+%fieldset(style="margin:50px 50px")
+  %legend
+    用户管理
+    %a(class="btn-default btn" href="/add_user" )
+      添加用户
+    =render :partial => "show_users"
+=render :partial => 'layouts/will_paginate',:locals => {:array=>@users}
+

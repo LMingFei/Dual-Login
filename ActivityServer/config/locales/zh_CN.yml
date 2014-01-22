@@ -1,0 +1,28 @@
+zh_CN:
+  activerecord:
+    attributes:
+      user:
+        name: "用户名"
+        password: "密码"
+        password_confirmation: "确认密码"
+        question: "找回密码问题"
+        answer: "找回密码答案"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: "密码不匹配"
+              too_short: "最短%{count}个字符"
+              too_long: "最长%{count}个字符"
+            password_confirmation:
+              confirmation: "密码不匹配"
+            name:
+              blank: "请添加用户名"
+              taken: "已占用"
+              too_short: "最短%{count}个字符"
+              too_long: "最长%{count}个字符"
+            question:
+              blank: "不能为空"
+            answer:
+              blank: "不能为空"
