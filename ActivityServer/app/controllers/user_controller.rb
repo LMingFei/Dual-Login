@@ -151,20 +151,22 @@ class UserController < ApplicationController
 
 
   def is_dimensional_login
+    callback=params[:callback]
     if User.find_by_twoDimensionalCode(params[:code])
-      render :text=>User.find_by_twoDimensionalCode(params[:code]).name
+      render :text=>callback+'('+User.find_by_twoDimensionalCode(params[:code]).name+')'
     else
-      render :text =>'nil'
+      render :text =>callback+"('nil')"
     end
   end
 
 
   def is_dimensional_logout
+    callback=params[:callback]
     user=User.find_by_name(params[:name])
     if user.twoDimensionalCode=='logout'
-      render :text=>'logout'
+      render :text=>callback+"('logout')"
     else
-      render :text =>'continue'
+      render :text =>callback+"('continue')"
     end
   end
 

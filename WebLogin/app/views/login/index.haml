@@ -7,29 +7,30 @@
       %img(src=@url width='150' height='150')
   %input(value=@Verification_Code id="code")
 :javascript
-  $(document).ready(function(){
+    $(document).ready(function(){
+      user_demensional_login();
+    })
 
-  user_demensional_login();
-  })
-  function user_demensional_login(){
-  var code=document.getElementById("code").value;
-  $.ajax({
-      url:'/is_demensional_login/'+code,
-      method:'get',
-      success:success_result,
-      error:error_result
-      })
-  }
-  function success_result(username)
-  {
-    if(username!='nil'){
-      window.location.href='http://192.168.1.159:3000/show/'+username
-                   }
-    else{
-      setTimeout('user_demensional_login()',1000)
-        }
-  }
-  function error_result(error)
-  {
-    alert("error")
-  }
+    function user_demensional_login(){
+    var code=document.getElementById("code").value;
+       $.ajax({
+           type:'get',
+           url:'http://192.168.1.159:3001/is_dimensional_login/'+code,
+           dataType:"jsonp",
+           success:success_result,
+           error:error_result
+     })
+    }
+    function success_result(username)
+    {
+      if(username!='nil'){
+        window.location.href='http://192.168.1.159:3000/show/'+username
+                     }
+      else{
+        setTimeout('user_demensional_login()',1000)
+          }
+    }
+    function error_result(error)
+    {
+      alert("error")
+    }

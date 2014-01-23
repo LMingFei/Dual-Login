@@ -5,7 +5,6 @@ WebLogin::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'login#index'
   get 'show/:name' => 'show#show'
-  get 'is_demensional_login/:code'=>'login#is_demensional_login'
   get 'is_demensional_logout/:name'=>'login#is_demensional_logout'
 
 
